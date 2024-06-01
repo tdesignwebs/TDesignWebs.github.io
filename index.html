@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buy Your Dream Website</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 2px -2px gray;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .products {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .product {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            width: calc(33% - 40px);
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product:hover {
+            transform: translateY(-10px);
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-bottom: 1px solid #ddd;
+        }
+        .product h3 {
+            margin: 10px 0;
+            font-size: 1.5em;
+        }
+        .product p {
+            padding: 0 10px;
+            color: #666;
+        }
+        .product button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 20px;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .product button:hover {
+            background-color: #0056b3;
+        }
+        .contact-form {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+        .contact-form label {
+            margin: 10px 0 5px;
+        }
+        .contact-form input,
+        .contact-form textarea {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .contact-form button {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .contact-form button:hover {
+            background-color: #0056b3;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: relative;
+            width: 100%;
+        }
+        footer p {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Buy Your Dream Website</h1>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="products">
+            <h2>Our Offerings</h2>
+            <div class="product">
+                <img src="https://via.placeholder.com/300x200" alt="Business Website">
+                <h3>Business Website</h3>
+                <p>A professional website for your business needs.</p>
+                <button>Contact Us</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/300x200" alt="Portfolio Website">
+                <h3>Portfolio Website</h3>
+                <p>Showcase your work with a stunning portfolio site.</p>
+                <button>Contact Us</button>
+            </div>
+            <div class="product">
+                <img src="https://via.placeholder.com/300x200" alt="E-commerce Website">
+                <h3>E-commerce Website</h3>
+                <p>Start selling online with a fully-featured e-commerce site.</p>
+                <button>Contact Us</button>
+            </div>
+        </section>
+
+        <section class="contact-form">
+            <h2>Contact Us</h2>
+            <form id="contactForm">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Website Sales. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('Thank you for your message! We will get back to you soon.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
