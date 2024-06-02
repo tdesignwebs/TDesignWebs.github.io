@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        header {
+            background-color: transparent;
+            color: rgb(255, 255, 255);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0px 50px;
+            background-color: rgba(20, 20, 20, 0.74);
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 75px;
+            font-family: Monospace;
+            margin-right: 30px;
+            font-size: 1vw;
+            /* Responsive text size */
+        }
+
+        .nav-links li {
+            display: inline;
+            
+        }
+
+        .nav-links a {
+            color: rgb(255, 255, 255);
+            text-decoration: none;
+            padding: 5px 20px;
+            transition: background-color 0.3s;
+        }
+
+        .nav-links a:hover {
+            background-color: rgba(131, 131, 131, 0.158);
+            border-radius: 50px;
+        }
+
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #250044 0%, #440025 50%, rgb(0, 2, 100) 100%);
+            background-size: 200% 200%;
+            animation: gradientAnimation 15s ease infinite;
+        }
+
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        #container {
+            position: absolute;
+            display: flex;
+            margin-top: 30px;
+            width: 20vw;
+            height: 80pt;
+            top: 40px;
+            bottom: 0;
+            left: -40px;
+            filter: url(#threshold) blur(0.5px);
+        }
+
+        #text1,
+        #text2 {
+            position: absolute;
+            width: 100%;
+            margin-left: 140px;
+            display: flex;
+            font-family: "Raleway", sans-serif;
+            font-size: 3vw;
+            /* Responsive text size */
+            text-align: center;
+        }
+
+        .logo {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .logo img {
+            height: 10vw;
+            /* Responsive logo size */
+        }
+
+        .pricing-table {
+            display: flex;
+            margin-top: 30px;
+            justify-content: center;
+            background-color: rgba(250, 235, 215, 0);
+            gap: 30px;
+        }
+
+        .pricing-plan {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+            color: white;
+        }
+
+        .pricing-plan.pro {
+            background: linear-gradient(235deg, rgb(0, 204, 255), rgb(0, 81, 255));
+            border: 1px solid rgb(110, 110, 110);
+            box-shadow: 0px 0px 75px 5px rgb(0, 175, 233);
+        }
+
+        .pricing-plan.plus {
+            background: #000000;
+        }
+
+        .pricing-plan h2 {
+            margin: 0;
+            font-size: 1vw;
+            /* Responsive text size */
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .pricing-plan p {
+            font-size: 1vw;
+            /* Responsive text size */
+            margin: 10px 0;
+        }
+
+        .pricing-plan ul {
+            list-style: none;
+            padding: 0;
+            text-align: left;
+        }
+
+        .pricing-plan ul li {
+            margin: 10px 0;
+            font-size: 1vw;
+            /* Responsive text size */
+            color: white;
+        }
+
+        .pricing-plan ul li:before {
+            content: '✔';
+            margin-right: 10px;
+            color: #ffffff;
+        }
+
+        /* Media queries for finer control */
+
+
+        @media (max-width: 2000px) {
+            .nav-links {
+                font-size: 1.3vw;
+                position: absolute;
+                left: 0;
+                right: 150px;
+                top: 8%;
+                gap: 200px;
+                transform: translateY(-50%);
+                margin: auto;
+                text-align: end;
+                color: rgb(255, 255, 255);
+                display: inline-block;
+            }
+
+            #text1,
+            #text2 {
+                font-size: 3vw;
+            }
+
+            .pricing-plan h2 {
+                font-size: 0.5vw;
+            }
+
+            .pricing-plan p,
+            .pricing-plan ul li {
+                font-size: 1.8vw;
+            }
+
+            .logo img {
+                height: 12vw;
+                position: relative;
+                margin-top: 1px;
+                margin-right: 10px;
+                margin-left: 10px;
+                margin-bottom: 1px;
+            }
+        }
+
+
+
+
+
+
+        @media (max-width: 1200px) {
+            .nav-links {
+                font-size: 1.4vw;
+                position: absolute;
+                left: 0;
+                right: 10px;
+                top: 8%;
+                transform: translateY(-50%);
+                margin: auto;
+                text-align: end;
+                color: rgb(255, 255, 255);
+                display: inline-block;
+
+            }
+
+            #text1,
+            #text2 {
+                font-size: 4.5vw;
+            }
+
+            .pricing-plan h2 {
+                font-size: 0.5vw;
+            }
+
+            .pricing-plan p,
+            .pricing-plan ul li {
+                font-size: 1.8vw;
+            }
+
+            .logo img {
+                height: 20vw;
+                position: relative;
+                margin-top: 1px;
+                margin-right: 10px;
+                margin-left: 10px;
+                margin-bottom: 1px;
+            }
+        }
+
+        @media (max-width: 800px) {
+            .nav-links {
+                font-size: 2.7vw;
+                position: absolute;
+                left: 0;
+                right: 0px;
+                top: 12%;
+                transform: translateY(-50%);
+                margin: auto;
+                text-align: center;
+                color: rgb(255, 255, 255);
+                display: inline-block;
+            }
+
+
+
+            .pricing-plan h2 {
+                font-size: 2vw;
+            }
+
+            .pricing-plan p,
+            .pricing-plan ul li {
+                font-size: 1.5vw;
+            }
+
+            .logo img {
+                height: 20vw;
+                position: relative;
+                margin-top: -51px;
+                margin-right: 10px;
+                margin-left: 10px;
+                margin-bottom: 1px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .nav-links {
+                font-size: 2.8vw;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 12%;
+                transform: translateY(-50%);
+                margin: auto;
+                text-align: center;
+                color: rgb(255, 255, 255);
+                display: inline-block;
+
+            }
+
+            #text1,
+            #text2 {
+                font-size: 2.5vw;
+            }
+
+            .pricing-plan h2 {
+                font-size: 1.5vw;
+            }
+
+            .pricing-plan p,
+            .pricing-plan ul li {
+                font-size: 1.2vw;
+            }
+
+            .logo img {
+                height: 20vw;
+                position: relative;
+                margin-top: -41px;
+                margin-right: 10px;
+                margin-left: 10px;
+                margin-bottom: 1px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <header>
+            <nav class="navbar">
+                <div id="container">
+                    <span id="text1"></span>
+                    <span id="text2"></span>
+                </div>
+                <div class="logo">
+                    <img src="logo.png" alt="Logo">
+                </div>
+                <svg id="filters">
+                    <defs>
+                        <filter id="threshold">
+                            <feColorMatrix in="SourceGraphic" type="matrix" values="1 0 0 0 0
+                                  0 1 0 0 0
+                                  0 0 1 0 0
+                                  0 0 0 255 -140" />
+                        </filter>
+                    </defs>
+                </svg>
+                <ul class="nav-links">
+                    <li><a href="#price">price</a></li>
+                    <li><a href="#products">products</a></li>
+                    <li><a href="#service">service</a></li>
+                    <li><a href="#login">login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="pricing-table">
+            <div class="pricing-plan basic">
+                <h2>basic</h2>
+                <p>€12,99 <br> per month price</p>
+                <ul>
+                    <li>basic website</li>
+                    <li>your products</li>
+                    <li>your sale's</li>
+                    <li>your payments</li>
+                    <li>your design</li>
+                    <li>support team</li>
+                    <li>your logo</li>
+                </ul>
+            </div>
+            <div class="pricing-plan pro">
+                <h2>pro</h2>
+                <p>€15,99 <br> per month price</p>
+                <ul>
+                    <li>pro website</li>
+                    <li>your products</li>
+                    <li>your sale's</li>
+                    <li>your payments</li>
+                    <li>your theme's</li>
+                    <li>support team</li>
+                    <li>email marketing</li>
+                </ul>
+            </div>
+            <div class="pricing-plan plus">
+                <h2>plus</h2>
+                <p>€19,99 <br> per month price</p>
+                <ul>
+                    <li>pro website</li>
+                    <li>your products</li>
+                    <li>your sale's</li>
+                    <li>your payments</li>
+                    <li>your theme's</li>
+                    <li>support team</li>
+                    <li>email marketing</li>
+                    <li>your logo</li>
+                    <li>adds for bussiness</li>
+                    <li>feature list</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
