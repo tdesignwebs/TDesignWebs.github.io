@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main menu</title>
+    <link rel="stylesheet" href="A.header.css">
+    <link rel="stylesheet" href="A.resize page.css">
+    <link rel="stylesheet" href="A.price table.css">
+    <link rel="stylesheet" href="A.body.css">
+    <style>
+        .product-show-box {
+            background-color: rgba(250, 235, 215, 0.432);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px 40px 0px 40px;
+            padding: 0px 20px 0px 10px;
+        }
+
+        .product-show-box div {
+            background-color: rgba(0, 255, 255, 0.438);
+            width: 250px;
+            height: 400px;
+            align-items: center;
+            margin: 30px;
+
+        }
+
+        .product-show-box div:nth-child(1) {
+            background-color: rgba(255, 0, 0, 0.438);
+            /* New color for item 1 */
+        }
+        
+        .product-show-box div:nth-child(2) {
+            background-color: rgba(0, 132, 255, 0.438);
+            /* New color for item 1 */
+        }
+        
+        .product-show-box div:nth-child(3) {
+            background-color: rgba(0, 255, 200, 0.438);
+            /* New color for item 1 */
+        }
+
+
+
+        .outer-box {
+            position: relative;
+            width: 1300px;
+            height: 500px;
+            overflow: hidden;
+            border: 2px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000000;
+            box-shadow: 0px -50px 36px -28px inset rgba(0, 0, 0, 0.705);
+        }
+        .inner-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            transition: transform 0.3s ease;
+            box-shadow: inset 20px 20px 40px 20px rgba(0, 0, 0, 0.582);
+        }
+        .inner-box img {
+            width: 400px;
+            height: 300px;
+            transition: all 0.3s ease;
+        }
+        .inner-box img.middle {
+            z-index: 10;
+            transform: scale(1.2);
+        }
+        .inner-box img.blurred {
+            filter: blur(5px);
+            opacity: 0.5;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 1000;
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+        .arrow-right {
+            right: 0;
+        }
+        h2{
+            color: rgb(255, 255, 255);
+            position: absolute;
+            display: flex;
+            z-index: 1;
+            margin-top: -30%;
+            font-size: 60px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="background">
+
+        <header>
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="logo.png" alt="Logo">
+                </div>
+
+                <ul class="nav-links">
+                    <li><a href="#price">price</a></li>
+                    <li><a href="#products">products</a></li>
+                    <li><a href="#service">service</a></li>
+                    <li><a href="B.login page.html">login</a></li>
+                </ul>
+            </nav>
+        </header>
+
+
+        <div class="product-show-box">
+            <div>item 1</div>
+            <div>item 2</div>
+            <div>item 3</div>
+
+
+        </div>
+
+
+
+    
+    </div>
+</body>
+<script>
+    let currentIndex = 2; // Start with the middle image (index 1)
+    const images = document.querySelectorAll('.inner-box img');
+    const totalImages = images.length;
+
+    function updateClasses() {
+        images.forEach((img, index) => {
+            img.classList.remove('middle', 'blurred');
+            if (index === currentIndex) {
+                img.classList.add('middle');
+            } else {
+                img.classList.add('blurred');
+            }
+        });
+    }
+
+    function moveLeft() {
+        currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+        updateClasses();
+        document.querySelector('.inner-box').style.transform = `translateX(calc(50% - ${(currentIndex * 400 + 200)}px))`;
+    }
+
+    function moveRight() {
+        currentIndex = (currentIndex + 1) % totalImages;
+        updateClasses();
+        document.querySelector('.inner-box').style.transform = `translateX(calc(50% - ${(currentIndex * 400 + 200)}px))`;
+    }
+
+    setInterval(moveRight, 3000);
+
+    updateClasses(); // Initial call to set the correct classes
+</script>
+
+</html>
