@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="A.header.css">
+    <link rel="stylesheet" href="A.resize page.css">
+    <link rel="stylesheet" href="A.price table.css">
+    <link rel="stylesheet" href="A.body.css">
+    <link rel="stylesheet" href="A.hamburgetmenu.css">
+    <link rel="stylesheet" href="A.backgroundeffect1.css">
+    <style>
+        .section {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            color: white;
+        }
+
+
+
+
+        .section-gray {
+            background-color: gray;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background"></div>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <img src="I.logo.png" alt="Logo">
+            </div>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#price">Price</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#service">Service</a></li>
+                <li><a href="Z.login page.html">Login</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="content">
+
+        <div class="area">
+            <ul class="circles">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </div>
+
+        
+    </div>
+
+
+
+    <section class="section-gray">
+        <div>Section 2: Gray</div>
+    </section>
+
+
+
+
+
+   
+</body>
+
+</html>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        navLinks.classList.toggle('active');
+    }
+
+    document.addEventListener('click', function (event) {
+        const navLinks = document.querySelector('.nav-links');
+        const hamburger = document.querySelector('.hamburger');
+
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            navLinks.classList.remove('active');
+        }
+    });
+</script>
