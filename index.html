@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+    <title>website #1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            display: flex;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #18181B;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            max-width: 150px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            position: relative;
+            margin: auto;
+            gap: 3rem;
+        }
+
+        .link a {
+            position: relative;
+            padding-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .link a::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #1d4ed8;
+            transition: all 0.3s ease;
+        }
+
+        .link a:hover::after {
+            width: 100%;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #1d4ed8;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #1e40af;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 5rem 2rem;
+        }
+
+
+        header {
+            position: relative;
+            padding-top: 2rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header .content h4 {
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        header .content h1 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 4rem;
+        }
+
+        header .content h1 span {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+        header .content p {
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        header .image {
+            position: relative;
+        }
+
+        header .image::before {
+            content: "o";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 38rem;
+            font-weight: 400;
+            line-height: 20rem;
+            color: #1d4ed8;
+            opacity: 0.2;
+            z-index: -100;
+        }
+
+        header .image img {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        section .header {
+            margin-bottom: 1rem;
+            color: #fff;
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 600;
+        }
+
+        .features {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .features .card {
+            background-color: #27272a;
+            padding: 1rem;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .features .card:hover {
+            background-color: #323232;
+            border-color: #fff;
+        }
+
+        .features .card span {
+            display: flex;
+            background-color: #1e40af;
+            padding: 2px 9px;
+            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            width: 50px;
+            height: 50px;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        .features .card h4 {
+            margin-bottom: 0.5rem;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .features .card p {
+            color: #ccc;
+            margin-bottom: 1rem;
+        }
+
+        .features .card a {
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        .features .card a:hover {
+            color: #1e40af;
+        }
+
+        .sub-header {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .pricing {
+            margin-top: 4rem;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .pricing .card {
+            padding: 3rem 2rem;
+            background: linear-gradient(35deg, rgb(15, 15, 15), #27272a);
+            display: flex;
+            flex-direction: column;
+            border: 2px solid transparent;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .pricing .card:hover {
+            background-color: #323232;
+            border-color: #fff;
+        }
+
+        .pricing .card .content {
+            flex: 1;
+            margin-bottom: 2rem;
+        }
+
+        .pricing .card h4 {
+            margin-bottom: 1rem;
+            color: #fff;
+            font-size: 1.3rem;
+            font-weight: 500;
+        }
+
+        .pricing .card h3 {
+            color: #fff;
+            padding-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            font-weight: 600;
+            border-bottom: 2px dashed #fff;
+        }
+
+        .pricing .card p {
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+
+        .pricing .card p i {
+            color: #ccc;
+            font-size: 1.2rem;
+            margin-right: 0.3rem;
+        }
+
+        .pricing .card button {
+            color: #fff;
+            
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+
+        .pricing .card button:hover {
+            background-color: #1e40af;
+            border-color: #1e40af;
+        }
+
+        footer {
+            position: relative;
+            display: grid;
+            grid-template-columns: 400px repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        footer .column .logo {
+            max-width: 100px;
+            margin-bottom: 2rem;
+        }
+
+        footer .column p {
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        footer .column .socials {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        footer .column .socials a {
+            color: #ccc;
+
+
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            transition: all 0.8s ease;
+            background-color: #03030300;
+        }
+
+        footer .column .socials a .ri-youtube-fill {
+            color: #ff0000;
+            border: 1px solid red;
+            padding: 10px 10px;
+            font-size: 1.65rem;
+            border-radius: 100%;
+
+        }
+
+        footer .column .socials a .ri-twitter-fill {
+            color: #00e1ff;
+            border: 1px solid #00e1ff;
+            padding: 10px 10px;
+            font-size: 1.65rem;
+            border-radius: 100%;
+
+        }
+
+        footer .column .socials a .ri-instagram-fill {
+            color: #ff00c8;
+            border: 1px solid #ff00c8;
+            padding: 10px 10px;
+            font-size: 1.65rem;
+            border-radius: 100%;
+
+        }
+
+        footer .column .socials a:hover {
+            color: #fff;
+            background-color: #ffffff;
+            border-color: #ffffff00;
+            border-radius: 100%;
+        }
+
+        footer .column h4 {
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        footer .column>a {
+            display: block;
+            color: #ccc;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        footer .column>a:hover {
+            color: #1d4ed8;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+            color: #fff;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        @media (width < 900px) {
+            .nav-links {
+                display: flex;
+            }
+
+            header {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            header .image {
+                grid-area: 1/1/2/2;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 200px;
+            }
+        }
+
+        @media (width < 600px) {
+            header .image::before {
+                display: none;
+            }
+
+            .features {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 150px;
+            }
+        }
+
+        .well {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .well span {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+
+        .close {
+            display: none;
+        }
+
+        @media (width < 715px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                height: 4px;
+                width: 28px;
+                background-color: #fff;
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+
+
+            .nav-links {
+                position: fixed;
+                display: block;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100%;
+                padding: 2rem 1rem;
+                background-color: #030303;
+                text-align: center;
+                transition: all 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-links a {
+                display: block;
+                font-size: 2rem;
+                padding: 1.5rem;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links .close {
+                display: none;
+            }
+
+            .nav-links.open .close {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                font-size: 2rem;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .hamburger.toggle span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger.toggle span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.toggle span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+        }
+
+
+        .main-logo {
+            cursor: pointer;
+        }
+
+
+        .ball {
+            position: absolute;
+            border-radius: 100%;
+            opacity: 0.7;
+        }
+
+        .dollar-coma {
+            font-size: 1.2rem;
+        }
+        .foto{
+            scale: none;
+            transition: transform 1s;
+        }
+        .foto:hover{
+            transform: scale(1.1);
+            
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-logo" class="main-logo">
+            <a href="index.html">
+                <img src="main-logo.png">
+            </a>
+        </div>
+
+
+
+
+
+        <ul class="nav-links">
+            <li class="link"><a href="#">Home</a></li>
+            <li class="link"><a href="#">Features</a></li>
+            <li class="link"><a href="price.html">Pricing</a></li>
+            <li class="link"><a href="#">About</a></li>
+            <span class="close">X</span>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <a href="Z.login page.html"> <button class="btn">login</button> </a>
+
+    </nav>
+
+
+
+
+
+    <header class="container">
+        <div class="content">
+
+            <h4>CREATE YOUR SITE LAKE A PRO </h4>
+            <h1> Hi <span>Costumers</span> Welcome to this website</h1>
+            <p>We create websites for you for a good price so if you would like to see how the website is looking then
+                check the website or connect us for more information</p>
+            <button class="btn">connect us</button>
+        </div>
+        <img class="foto" src="1-bg.jpg">
+    </header>
+
+
+
+    <section class="container">
+        <h1 class="well"><span>OUR FEATURES</span></h1>
+        <div class="features">
+            <div class="card">
+                <span><i class="ri-pages-fill"></i></span>
+                <h4>Free Tutorials</h4>
+                <p>
+                    My tutorials in my channel "AsmrProg" are free and you don't need to pay anything.
+                </p>
+                <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+            </div>
+            <div class="card">
+                <span><i class="ri-code-box-fill"></i></span>
+                <h4>Fix Your Bugs</h4>
+                <p>
+                    You have any problem in your codes? Tell me, i will help you fix it.
+                </p>
+                <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+            </div>
+            <div class="card">
+                <span><i class="ri-window-2-fill"></i></span>
+                <h4>On Time Videos</h4>
+                <p>
+                    We have video each 4 days, So check channel every 4 days to watch it!
+                </p>
+                <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+            </div>
+            <div class="card">
+                <span><i class="ri-window-fill"></i></span>
+                <h4>Cooperation</h4>
+                <p>
+                    You want we worrk together? Write email to us, we will read it.
+                </p>
+                <a href="#">Join Now <i class="ri-arrow-right-line"></i></a>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+    <section id="pricing" class="container">
+        <h1 class="well"><span>PROJECT PRICING PLANS</span></h1>
+        <p class="sub-header">
+            Our pricing plans come with various membership tiers, each tailored to cater to different projects and
+            class+ code types.
+        </p>
+        <div class="pricing">
+            <div src class="card">
+                <div class="content">
+                    <h4>basic website</h4>
+                    <h3>$99<span class="dollar-coma">,99</span></h3>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        your web design
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        your payment
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        3d brand logo
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        your website photo's
+                    </p>
+
+
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <h4>pro website</h4>
+                    <h3>$149<span class="dollar-coma">,99</span></h3>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        your web design
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        your payment
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        3d brand logo
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        your website photo's
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                        personal web card
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                     logo brand
+                    </p>
+                    <p>
+                        <i class="ri-checkbox-circle-line"></i>
+                     
+                    </p>
+
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div class="card">
+                <div class="content">
+                    <h4>ultimate website</h4>
+                    <h3>$189<span class="dollar-coma">,99</span></h3>
+
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
+
+
+    <footer class="container">
+
+        <div class="column">
+            <div class="logo">
+                <img src="main-logo.png">
+            </div>
+            <p>
+                website social media content
+            </p>
+            <div class="socials">
+                <a href="#"><i class="ri-youtube-fill"></i></a>
+                <a href="#"><i class="ri-instagram-fill"></i></a>
+                <a href="#"><i class="ri-twitter-fill"></i></a>
+            </div>
+        </div>
+        <div class="column">
+            <h4>Company</h4>
+            <a href="#">Business</a>
+            <a href="#">Partnership</a>
+            <a href="#">Network</a>
+        </div>
+        <div class="column">
+            <h4>About Us</h4>
+            <a href="#">Blogs</a>
+            <a href="#">Channels</a>
+            <a href="#">Sponsors</a>
+        </div>
+        <div class="column">
+            <h4>Contact</h4>
+            <a href="#">Contact Us</a>
+            <a href="#">Privicy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+        Copyright © 2023 AsmrProg Channel. All Rights Reserved.
+    </div>
+
+
+
+
+
+</body>
+<script>
+
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+
+</script>
+<script>
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const closeBtn = document.querySelector('.close');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('toggle');
+        navLinks.classList.toggle('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('toggle');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('toggle');
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('toggle');
+        }
+    });
+</script>
+<script>
+    // Some random colors
+    const colors = ["#00fbff", "#00fbff", "#00fbff", "#00fbff", "#00fbff"];
+
+    const numBalls = 20;
+    const balls = [];
+
+    for (let i = 0; i < numBalls; i++) {
+        let ball = document.createElement("div");
+        ball.classList.add("ball");
+        ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+        ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+        ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+        ball.style.transform = `scale(${Math.random()})`;
+        ball.style.width = `${Math.random()}em`;
+        ball.style.height = ball.style.width;
+
+        balls.push(ball);
+        document.body.append(ball);
+    }
+
+    // Keyframes
+    balls.forEach((el, i, ra) => {
+        let to = {
+            x: Math.random() * (i % 2 === 0 ? -11 : 11),
+            y: Math.random() * 12
+        };
+
+        let anim = el.animate(
+            [
+                { transform: "translate(0, 0)" },
+                { transform: `translate(${to.x}rem, ${to.y}rem)` }
+            ],
+            {
+                duration: (Math.random() + 1) * 1500, // random duration
+                direction: "alternate",
+                fill: "both",
+                iterations: Infinity,
+                easing: "ease-in-out"
+            }
+        );
+    });
+</script>
+
+</html>
