@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body {
+            background-color: rgb(0, 0, 0);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 5rem 2rem;
+            background: radial-gradient(70% 50% at 50% 50%, rgba(255, 0, 221, 0.205) 0%, rgba(153, 0, 255, 0) 100%);
+        }
+
+        .sub-title {
+            max-width: 600px;
+            margin: auto;
+            text-align: center;
+            color: #ccc;
+        }
+
+        .main-title {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-title span {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+        .pricing {
+            margin-top: 4rem;
+            display: grid;
+            justify-content: flex-end;
+            position: relative;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            align-items: flex-end;
+        }
+
+
+        .text-align {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 1px;
+            height: min-content;
+        }
+    </style>
+    <style>
+        @media (width < 1100px) {
+            header .image::before {
+                display: none;
+            }
+
+            .main-title span {
+                -webkit-text-fill-color: white;
+                -webkit-text-stroke: 0px;
+                align-items: center;
+                position: relative;
+                text-align: center;
+            }
+
+            .features {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 150px;
+            }
+        }
+
+        @media (width < 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .main-title span {
+                -webkit-text-fill-color: white;
+                -webkit-text-stroke: 0px;
+                align-items: center;
+                position: relative;
+                text-align: center;
+            }
+
+            header {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            header .image {
+                grid-area: 1/1/2/2;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 200px;
+            }
+        }
+
+        @media (width < 600px) {
+            header .image::before {
+                display: none;
+            }
+
+            .main-title span {
+                -webkit-text-fill-color: white;
+                -webkit-text-stroke: 0px;
+                align-items: center;
+                position: relative;
+                text-align: center;
+            }
+
+            .features {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 150px;
+            }
+
+
+
+        }
+
+        @media (width < 715px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                height: 4px;
+                width: 28px;
+                background-color: #fff;
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+
+
+            .nav-links {
+                position: fixed;
+                display: block;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100%;
+                padding: 2rem 1rem;
+                background-color: #030303;
+                text-align: center;
+                transition: all 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-links a {
+                display: block;
+                font-size: 2rem;
+                padding: 1.5rem;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links .close {
+                display: none;
+            }
+
+            .nav-links.open .close {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                font-size: 2rem;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .hamburger.toggle span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger.toggle span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.toggle span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+
+
+
+
+        }
+    </style>
+    <style>
+        .pricing .card-1 {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.041);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 1px 1px #ffffff1a;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(49, 49, 49);
+            border-radius: 16px;
+
+            transition: all 0.3s ease;
+            height: min-content;
+            position: relative;
+        }
+
+
+        .pricing .card-2 {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.041);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 1px 1px #ffffff1a;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(49, 49, 49);
+
+            border-radius: 16px;
+            transition: all 0.3s ease;
+            height: min-content;
+            position: relative;
+        }
+
+        .pricing .card-3 {
+            padding: 20px;
+            background: linear-gradient(0deg, rgba(58, 0, 50, 0.39) 0%, rgba(105, 0, 100, 0.164) 50%, rgba(80, 0, 44, 0.900) 100%);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(49, 49, 49);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 1px 1px #ffffff4d, 0 1px 20px #3d004280;
+            height: min-content;
+            z-index: 1;
+            position: relative;
+        }
+
+        .pricing .card-4 {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.041);
+            -webkit-backdrop-filter: blur(5px);
+            backdrop-filter: blur(5px);
+            box-shadow: inset 0 1px 1px #ffffff1a;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgb(49, 49, 49);
+            border-radius: 16px;
+            transition: all 0.3s ease;
+
+            height: min-content;
+            position: relative;
+        }
+
+
+        .pricing .card-1:hover,
+        .pricing .card-2:hover,
+        .pricing .card-3:hover,
+        .pricing .card-4:hover {
+            background-color: rgba(255, 255, 255, 0.103);
+
+        }
+
+        .pricing .card-1:active,
+        .pricing .card-2:active,
+        .pricing .card-3:active,
+        .pricing .card-4:active {
+            background-color: rgba(199, 199, 199, 0.26);
+        }
+
+        .pricing .card-3 .content,
+        .pricing .card-4 .content,
+        .pricing .card-2 .content,
+        .pricing .card-1 .content {
+            flex: 1;
+            margin-bottom: 2rem;
+        }
+
+        .pricing .card-1 h3,
+        .pricing .card-2 h3,
+        .pricing .card-4 h3,
+        .pricing .card-3 h3 {
+            color: #fff;
+            padding-bottom: 0.1rem;
+            margin-top: 0.2px;
+            margin-bottom: 0.1rem;
+            font-size: 35px;
+            font-weight: 600;
+        }
+
+        .pricing .card-1 h4,
+        .pricing .card-2 h4,
+        .pricing .card-4 h4,
+        .pricing .card-3 h4 {
+            margin-bottom: 1rem;
+            color: #dbdbdb;
+            margin-top: 2px;
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .pricing .card-1 h5,
+        .pricing .card-4 h5,
+        .pricing .card-2 h5 {
+            margin-bottom: 0.5rem;
+            color: rgb(153, 153, 153);
+            margin-top: 2px;
+            font-size: 0.8rem;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .pricing .card-3 h5 {
+            margin-bottom: 0.5rem;
+            color: rgb(255, 255, 255);
+            margin-top: 2px;
+            font-size: 0.8rem;
+            margin-top: 2px;
+            font-weight: 500;
+        }
+
+        .pricing .card-1 p,
+        .pricing .card-2 p,
+        .pricing .card-4 p,
+        .pricing .card-3 p {
+            color: #fff;
+            display: flex;
+            gap: 10px;
+        }
+
+
+        .pricing .card-1 p i,
+        .pricing .card-2 p i,
+        .pricing .card-4 p i {
+            color: #c7c7c7;
+            font-size: 1.2rem;
+            margin-right: 0.3rem;
+        }
+
+        .pricing .card-3 p i {
+            color: white;
+            font-size: 1.2rem;
+            margin-right: 0.3rem;
+        }
+
+        .pricing .card-1 button,
+        .pricing .card-2 button,
+        .pricing .card-4 button,
+        .pricing .card-3 button {
+            color: #000000;
+
+            border: none;
+            height: 20px;
+            border-radius: 5px;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            box-shadow: rgba(0, 0, 0, 0.18) 0px 0.602187px 1.80656px -1.25px, rgba(0, 0, 0, 0.16) 0px 2.28853px 6.8656px -2.5px, rgba(0, 0, 0, 0.063) 0px 10px 30px -3.75px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgb(201, 201, 201);
+        }
+
+        .dollar-coma {
+            font-size: 1.3rem;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+            color: #fff;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+    </style>
+    <style>
+        body {
+            background-color: black;
+        }
+
+        .price-table {
+            width: 100%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem 0rem;
+            background: radial-gradient(50% 50% at 50% 50%, rgba(102, 0, 255, .1) 0%, rgba(153, 0, 255, 0) 100%);
+        }
+
+        .price-row,
+        .price-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #333;
+        }
+
+        .price-row:hover {
+            background-color: rgba(199, 199, 199, 0.062);
+        }
+
+        .price-row:active {
+            background-color: rgba(199, 199, 199, 0.26);
+        }
+
+        .price-header {
+            font-weight: bold;
+            text-align: center;
+            background-color: #33333300;
+            color: #FFFFFF;
+        }
+
+        .price-cell {
+            padding: 22px 15px;
+            text-align: left;
+            color: #c9c9c9;
+        }
+
+        .price-cell-center {
+            text-align: center;
+        }
+
+        .name-column {
+            font-weight: bold;
+            color: rgb(255, 255, 255);
+            font-size: 13px;
+            display: flex;
+
+            flex-direction: column;
+            width: 20%;
+            min-width: 100px;
+            position: relative;
+        }
+
+        .explanation {
+            width: 100%;
+            display: none;
+            margin-top: 10px;
+            background: linear-gradient(25deg, #0d0031 0%, rgb(59, 0, 71) 100%);
+            padding: 10px;
+            box-shadow: inset 0 0px 1px #ffffff4d, 0 1px 30px #34003b80;
+            color: rgb(255, 255, 255);
+            border: 0px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+
+
+        .icon {
+            color: white;
+            font-size: 20px;
+            background: #6a007400;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+
+            width: 25px;
+            height: 25px;
+            z-index: 1;
+            border: 0px solid white;
+        }
+
+        .box {
+            width: 50px;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .check {
+            width: 75%;
+            margin: auto;
+            height: 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <section id="pricing" class="container">
+        <h1 class="main-title"><span>PROJECT PRICING PLANS</span></h1>
+        <p class="sub-title">
+            Our pricing plans come with various membership tiers, each tailored to cater to different projects and
+            class+ code types.
+        </p>
+        <div class="pricing">
+            <div src class="card-1">
+                <div class="content">
+                    <h4>Basic </h4>
+                    <h3>€119<span class="dollar-coma">,99</span></h3>
+                    <h5>Per site per month</h5>
+                    <div class="text-align">
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Simple Design and Layout
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Home Page
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Contact Form
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Responsive Design
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Basic SEO Setup
+                        </p>
+
+
+                    </div>
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div src class="card-2">
+                <div class="content">
+                    <h4>Pro </h4>
+                    <h3>€119<span class="dollar-coma">,99</span></h3>
+                    <h5>Per site per month</h5>
+                    <div class="text-align">
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            All from Basic version
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Advanced Design
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Content Management System
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Social Media Integration
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Enhanced SEO Keysearch
+                        </p>
+
+                    </div>
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div class="card-3">
+                <div class="content">
+                    <h4>Premuim </h4>
+                    <h3>€149<span class="dollar-coma">,99</span></h3>
+                    <h5>Per site per month</h5>
+                    <div class="text-align">
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            all from Pro
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            E-commerce Functionality
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Advanced Analytics
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Blog Setup and Integration
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Custom Graphics and Branding
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Website Maintenance
+                        </p>
+                    </div>
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+            <div class="card-4">
+                <div class="content">
+                    <h4>Ultra </h4>
+                    <h3>€189<span class="dollar-coma">,99</span></h3>
+                    <h5>Per site per month</h5>
+                    <div class="text-align">
+
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            All from Premuim
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Additional Pages
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Content Creation
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Email Newsletter Setup
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Multilingual Support
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Ongoing Maintenance
+                        </p>
+                        <p>
+                            <i class="ri-checkbox-circle-line"></i>
+                            Custom Development
+                        </p>
+
+
+                    </div>
+
+                </div>
+                <button class="btn">Join Now</button>
+            </div>
+        </div>
+    </section>
+    <div class="price-table">
+        <div class="price-header">
+            <div class="price-cell"></div>
+            <div class="price-cell price-cell-center">Basic</div>
+            <div class="price-cell price-cell-center">Pro</div>
+            <div class="price-cell price-cell-center">Premium</div>
+            <div class="price-cell price-cell-center">Ultra</div>
+        </div>
+
+
+
+
+
+        <div class="price-row">
+            <div class="price-cell name-column" data-label="Hosting">
+                <div>Simple Design and Layout</div>
+                <div class="explanation" id="explanation-1">
+                    Basic, clean design with limited customization that we make for you.
+                </div>
+            </div>
+            <div class="check">
+                <div class="box">
+                    <button class="icon" onclick="toggleExplanation(1)"> &#10069;</button>
+                </div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+            </div>
+        </div>
+
+
+
+        
+        <div class="price-row">
+            <div class="price-cell name-column" data-label="Hosting">
+                <div>Home Page</div>
+                <div class="explanation" id="explanation-2">
+                    Creation of the main landing page.
+                </div>
+            </div>
+            <div class="check">
+                <div class="box">
+                    <button class="icon" onclick="toggleExplanation(2)"> &#10069;</button>
+                </div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+            </div>
+        </div>
+
+
+
+
+        
+        <div class="price-row">
+            <div class="price-cell name-column" data-label="Hosting">
+                <div>Contact Form</div>
+                <div class="explanation" id="explanation-3">
+                    Simple form for visitors to get in touch.
+                </div>
+            </div>
+            <div class="check">
+                <div class="box">
+                    <button class="icon" onclick="toggleExplanation(3)"> &#10069;</button>
+                </div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+            </div>
+        </div>
+
+        
+        
+        <div class="price-row">
+            <div class="price-cell name-column" data-label="Hosting">
+                <div>Responsive Design</div>
+                <div class="explanation" id="explanation-4">
+                    Ensures the site looks good on all devices.
+                </div>
+            </div>
+            <div class="check">
+                <div class="box">
+                    <button class="icon" onclick="toggleExplanation(4)"> &#10069;</button>
+                </div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+                <div class="price-cell price-cell-center">✔</div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div>
+        <div class="copyright">
+            Copyright © 2024 made by designers by m3 team
+        </div>
+    </div>
+</body>
+<script>
+    document.addEventListener('click', function (event) {
+        const explanations = document.querySelectorAll('.explanation');
+        explanations.forEach(explanation => {
+            if (!explanation.contains(event.target) && !event.target.classList.contains('icon')) {
+                explanation.style.display = 'none';
+            }
+        });
+    });
+
+    function toggleExplanation(id) {
+        const explanation = document.getElementById(`explanation-${id}`);
+        explanation.style.display = explanation.style.display === 'none' || explanation.style.display === '' ? 'block' : 'none';
+    }
+</script>
+
+</html>
