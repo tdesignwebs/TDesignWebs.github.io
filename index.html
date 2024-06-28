@@ -1,0 +1,988 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>website #1</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+        * {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            border: none;
+            box-sizing: border-box;
+        }
+
+
+        a {
+            text-decoration: none;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #0000ca;
+            background: radial-gradient(70% 50% at 50% 50%, rgb(61, 0, 53) 0%, rgb(4, 0, 7) 100%);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: auto;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .nav-logo {
+            max-width: 150px;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            position: relative;
+            margin: auto;
+            gap: 3rem;
+        }
+
+        .link a {
+            position: relative;
+            padding-bottom: 0.75rem;
+            color: #fff;
+        }
+
+        .link a::after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #1d4ed8;
+            transition: all 0.3s ease;
+        }
+
+        .link a:hover::after {
+            width: 100%;
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+            padding: 5rem 2rem;
+            display: grid;
+            margin-top: -80px;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #ffffff36;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #ffffff50;
+        }
+
+
+
+
+
+        header {
+            position: relative;
+            padding-top: 2rem;
+            display: grid;
+            text-align: center;
+            grid-template-columns: repeat(1, 1fr);
+            align-items: center;
+            gap: 2rem;
+        }
+
+        header .content h4 {
+            margin-bottom: 1rem;
+            color: #ccc;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        header .content h1 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 4rem;
+        }
+
+        header .content h1 span {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+        header .content p {
+            margin-bottom: 2rem;
+            color: #ccc;
+        }
+
+        header .image {
+            position: relative;
+        }
+
+        header .image::before {
+            content: "o";
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 38rem;
+            font-weight: 400;
+            line-height: 20rem;
+            color: #1d4ed8;
+            opacity: 0.2;
+            z-index: -100;
+        }
+
+        header .image img {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        section .header {
+            margin-bottom: 1rem;
+            color: #fff;
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 600;
+        }
+
+        img {
+            width: 100%;
+            display: flex;
+        }
+
+        footer {
+            position: relative;
+            display: grid;
+            grid-template-columns: 400px repeat(3, 1fr);
+            gap: 2rem;
+            padding: 12px;
+        }
+
+
+        .column {
+            display: grid;
+        }
+
+        footer .column .logo {
+            max-width: 100px;
+            margin-bottom: 2rem;
+        }
+
+        footer .column p {
+            color: #ccc;
+            margin-bottom: 2rem;
+        }
+
+        footer .column .socials {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        footer .column .socials a {
+            color: #ccc;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            transition: all 0.8s ease;
+            background-color: #03030300;
+        }
+
+        footer .column .socials a .ri-youtube-fill {
+            color: #ff0000;
+            border: 1px solid red;
+            padding: 10px 10px;
+            font-size: 1.65rem;
+            border-radius: 100%;
+
+        }
+
+        footer .column .socials a .ri-twitter-fill {
+            color: #00e1ff;
+            border: 1px solid #00e1ff;
+            padding: 10px 10px;
+            font-size: 1.65rem;
+            border-radius: 100%;
+
+        }
+
+        footer .column .socials a .ri-instagram-fill {
+            color: #ff00c8;
+            border: 1px solid #ff00c8;
+            padding: 10px 10px;
+            font-size: 1.65rem;
+            border-radius: 100%;
+
+        }
+
+        footer .column .socials a:hover {
+            color: #fff;
+            background-color: #ffffff;
+            border-color: #ffffff00;
+            border-radius: 100%;
+        }
+
+        footer .column h4 {
+            color: #fff;
+            margin-bottom: 2rem;
+            font-size: 1.2rem;
+            font-weight: 500;
+        }
+
+        footer .column a {
+            display: block;
+            color: #ccc;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        footer .column>a:hover {
+            color: #1d4ed8;
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: auto;
+            padding: 1rem;
+            color: #fff;
+            font-size: 0.8rem;
+            text-align: center;
+        }
+
+        @media (width < 1150px) {
+            .nav-links {
+                display: flex;
+            }
+
+            header {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            header .image {
+                grid-area: 1/1/2/2;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        @media (width < 950px) {
+            .nav-links {
+                display: flex;
+            }
+
+            header {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            header .image {
+                grid-area: 1/1/2/2;
+            }
+
+            .features {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+        }
+
+        @media (width < 600px) {
+            header .image::before {
+                display: none;
+            }
+
+            .features {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .pricing {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            footer {
+                grid-template-columns: 1fr 150px;
+                padding: 30px;
+            }
+        }
+
+        .main-title {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 4rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .main-title span {
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke: 1px #ffffff;
+        }
+
+
+        .close {
+            display: none;
+        }
+
+        @media (width < 715px) {
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+
+            .hamburger span {
+                display: block;
+                height: 4px;
+                width: 28px;
+                background-color: #fff;
+                margin: 5px;
+                transition: all 0.3s ease;
+            }
+
+
+            header .content p {
+                margin-bottom: 2rem;
+                color: #ccc;
+                font-size: 0.7rem;
+            }
+
+            .nav-links {
+                position: fixed;
+                display: block;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 50%;
+                padding: 2rem 1rem;
+                background-color: #585858;
+                text-align: center;
+                transition: all 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-links a {
+                display: block;
+                font-size: 1rem;
+                padding: 1.5rem;
+            }
+
+
+            header .content h4 {
+                margin-bottom: 1rem;
+                color: #ccc;
+                font-size: 1.2rem;
+                font-weight: 600;
+            }
+
+            .nav-logo {
+                width: 70%;
+            }
+
+            .nav-links.open {
+                right: 0;
+            }
+
+            .nav-links .close {
+                display: none;
+            }
+
+            .nav-links.open .close {
+                display: block;
+                position: absolute;
+                top: 10px;
+                right: 20px;
+                font-size: 2rem;
+                color: #fff;
+                cursor: pointer;
+            }
+
+            .hamburger.toggle span:nth-child(1) {
+                transform: translateY(9px) rotate(45deg);
+            }
+
+            .hamburger.toggle span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .hamburger.toggle span:nth-child(3) {
+                transform: translateY(-9px) rotate(-45deg);
+            }
+
+            .ball {
+
+                display: none;
+            }
+            .btn {
+         display: none;
+        }
+
+        .btn:hover {
+            display: none;
+        }
+
+            header .content h1 {
+                color: #fff;
+                margin-bottom: 1rem;
+                font-size: 1rem;
+                font-weight: 700;
+                line-height: 1.4rem;
+            }
+
+            header .content h1 span {
+                -webkit-text-fill-color: transparent;
+                -webkit-text-stroke: 1px #ffffff;
+            }
+        }
+
+
+
+
+
+        .ball {
+            position: absolute;
+            border-radius: 100%;
+            opacity: 0.7;
+        }
+
+        .dollar-coma {
+            font-size: 1.2rem;
+        }
+    </style>
+    <style>
+        .product-view {
+            padding: 20px;
+            margin-bottom: 300px;
+            margin-top: -30px;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            display: flex;
+        }
+
+        .product-layout {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            justify-content: space-around;
+        }
+
+        .product-layout ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .product-layout li {
+            background-color: #0f1729;
+            border-radius: 10px;
+            margin: 10px;
+            width: 320px;
+            border: 1px solid hsl(215.2, 27.1%, 21%);
+            padding: 10px 10px 10px 10px;
+            box-shadow: 0 0px 5px rgba(143, 143, 143, 0.233);
+            transition: transform 0.2s;
+        }
+
+        .product-layout li:active {
+            background-color: #0f1729c7;
+        }
+
+        .product-layout li:hover {
+
+            box-shadow: inset 0 1px 1px #ffffff0a, 0 0px 10px #ffffff59;
+
+            transform: translateY(-8px);
+        }
+
+        .product-image-holder {
+            width: 300px;
+            /* Set a fixed width */
+            height: 280px;
+            /* Set a fixed height */
+            margin: 0 auto 10px auto;
+            /* Center the image holder */
+            overflow: hidden;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            /* Ensures the image covers the entire area while maintaining aspect ratio */
+            border-radius: 10px;
+            background-color: #ffffff62;
+        }
+
+        .card-profile {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .card-profile-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .card-profile-name {
+            color: #1e90ff;
+            text-decoration: none;
+            margin-left: -10px;
+        }
+
+        .card-title {
+            margin: -20px 0;
+            font-size: 18px;
+            padding: 20px;
+        }
+
+        .card-title a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .card-meta {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        .card-meta div {
+            text-align: center;
+        }
+
+        .card-price {
+            display: flex;
+            align-items: center;
+        }
+
+        .ethereum-icon {
+            width: 18px;
+            height: 18px;
+            margin-right: 5px;
+        }
+
+        .ethereum-price {
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="nav-logo">
+            <a href="index.html">
+                <img class="nav-logo" src="main-logo.png">
+            </a>
+        </div>
+
+
+
+
+
+        <ul class="nav-links">
+            <li class="link"><a href="#">Home</a></li>
+            <li class="link"><a href="#">Features</a></li>
+            <li class="link"><a href="price.html">Pricing</a></li>
+            <li class="link"><a href="#">About</a></li>
+            <span class="close">X</span>
+        </ul>
+        <a href="price.html"> <button class="btn">login</button></a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+
+    </nav>
+
+
+
+
+
+    <header class="container">
+        <div class="content">
+
+            <h4>CREATE YOUR SITE LAKE A PRO </h4>
+            <h1> Hi <span>Costumers</span> Welcome to this website</h1>
+            <p>We create websites for you for a good price so if you would like to see how the website is looking then
+                check the website or connect us for more information</p>
+            <br>
+            <br>
+        </div>
+
+    </header>
+
+
+    <div class="product-view">
+        <div class="product-layout">
+            <ul>
+                <!-- Example product item -->
+                <li>
+                    <div class="product-inside">
+                        <div class="product-image-holder">
+                            <img class="product-image" src="product-1.pnd.jpg" alt="Product Image">
+                        </div>
+                        <div class="card-profile">
+                            <img class="card-profile-logo" src="main-logo.png" alt="Profile Logo">
+                            <a class="card-profile-name" href="#">@M3hmet072</a>
+                        </div>
+                        <h3 class="card-title">
+                            <a href="#">ID: #001</a>
+                        </h3>
+                        <div class="card-meta">
+                            <div>
+                                <p>Price</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.5 ETH</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Highest Bid</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.55 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="product-inside">
+                        <div class="product-image-holder">
+                            <img class="product-image" src="product-gif-1.gif" alt="Product Image">
+                        </div>
+                        <div class="card-profile">
+                            <img class="card-profile-logo" src="main-logo.png" alt="Profile Logo">
+                            <a class="card-profile-name" href="#">@OMBXE</a>
+                        </div>
+                        <h3 class="card-title">
+                            <a href="#">ID: #002</a>
+                        </h3>
+                        <div class="card-meta">
+                            <div>
+                                <p>Price</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.5 ETH</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Highest Bid</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.55 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="product-inside">
+                        <div class="product-image-holder">
+                            <img class="product-image" src="html/ss/robot-3.jpg" alt="Product Image">
+                        </div>
+                        <div class="card-profile">
+                            <img class="card-profile-logo" src="main-logo.png" alt="Profile Logo">
+                            <a class="card-profile-name" href="#">@MJ</a>
+                        </div>
+                        <h3 class="card-title">
+                            <a href="#">ID: #003</a>
+                        </h3>
+                        <div class="card-meta">
+                            <div>
+                                <p>Price</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.5 ETH</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Highest Bid</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.55 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="product-inside">
+                        <div class="product-image-holder">
+                            <img class="product-image" src="html/ss/robot-4.png" alt="Product Image">
+                        </div>
+                        <div class="card-profile">
+                            <img class="card-profile-logo" src="main-logo.png" alt="Profile Logo">
+                            <a class="card-profile-name" href="#">@Drvar</a>
+                        </div>
+                        <h3 class="card-title">
+                            <a href="#">ID: #004</a>
+                        </h3>
+                        <div class="card-meta">
+                            <div>
+                                <p>Price</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.5 ETH</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Highest Bid</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.55 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="product-inside">
+                        <div class="product-image-holder">
+                            <img class="product-image" src="html/ss/robot-5.png" alt="Product Image">
+                        </div>
+                        <div class="card-profile">
+                            <img class="card-profile-logo" src="main-logo.png" alt="Profile Logo">
+                            <a class="card-profile-name" href="#">@Close</a>
+                        </div>
+                        <h3 class="card-title">
+                            <a href="#">ID: #005</a>
+                        </h3>
+                        <div class="card-meta">
+                            <div>
+                                <p>Price</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.5 ETH</span>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Highest Bid</p>
+                                <div class="card-price">
+                                    <img class="ethereum-icon" src="ethereum.svg" alt="Ethereum Icon">
+                                    <span class="ethereum-price">3.55 ETH</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <!-- Repeat <li> for each product -->
+            </ul>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <footer class="container-information">
+
+        <div class="column">
+            <div class="logo">
+                <img src="main-logo.png">
+            </div>
+            <p>
+                website social media content
+            </p>
+            <div class="socials">
+                <a href="#"><i class="ri-youtube-fill"></i></a>
+                <a href="#"><i class="ri-instagram-fill"></i></a>
+                <a href="#"><i class="ri-twitter-fill"></i></a>
+            </div>
+        </div>
+        <div class="column">
+            <h4>Company</h4>
+            <a href="#">Business</a>
+            <a href="#">Partnership</a>
+            <a href="#">Network</a>
+        </div>
+        <div class="column">
+            <h4>About Us</h4>
+            <a href="#">Blogs</a>
+            <a href="#">Channels</a>
+            <a href="#">Sponsors</a>
+        </div>
+        <div class="column">
+            <h4>Contact</h4>
+            <a href="#">Contact Us</a>
+            <a href="#">Privicy Policy</a>
+            <a href="#">Terms & Conditions</a>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+    <div class="copyright">
+        Copyright © 2024 made by designers by m3 team
+    </div>
+
+
+
+
+
+
+</body>
+
+
+
+
+<script>
+
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
+
+
+</script>
+<script>
+
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const closeBtn = document.querySelector('.close');
+
+    hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('toggle');
+        navLinks.classList.toggle('open');
+    });
+
+    closeBtn.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        hamburger.classList.remove('toggle');
+    });
+
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('toggle');
+        });
+    });
+    document.querySelectorAll('.nav-links a btn').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('toggle');
+        });
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!navLinks.contains(event.target) && !hamburger.contains(event.target)) {
+            navLinks.classList.remove('open');
+            hamburger.classList.remove('toggle');
+        }
+    });
+</script>
+<script>
+    // Some random colors
+    const colors = ["#00fbff", "#00fbff", "#00fbff", "#00fbff", "#00fbff"];
+
+    const numBalls = 20;
+    const balls = [];
+
+    for (let i = 0; i < numBalls; i++) {
+        let ball = document.createElement("div");
+        ball.classList.add("ball");
+        ball.style.background = colors[Math.floor(Math.random() * colors.length)];
+        ball.style.left = `${Math.floor(Math.random() * 100)}vw`;
+        ball.style.top = `${Math.floor(Math.random() * 100)}vh`;
+        ball.style.transform = `scale(${Math.random()})`;
+        ball.style.width = `${Math.random()}em`;
+        ball.style.height = ball.style.width;
+
+        balls.push(ball);
+        document.body.append(ball);
+    }
+
+    // Keyframes
+    balls.forEach((el, i, ra) => {
+        let to = {
+            x: Math.random() * (i % 2 === 0 ? -11 : 11),
+            y: Math.random() * 12
+        };
+
+        let anim = el.animate(
+            [
+                { transform: "translate(0, 0)" },
+                { transform: `translate(${to.x}rem, ${to.y}rem)` }
+            ],
+            {
+                duration: (Math.random() + 1) * 1500, // random duration
+                direction: "alternate",
+                fill: "both",
+                iterations: Infinity,
+                easing: "ease-in-out"
+            }
+        );
+    });
+</script>
+
+</html>
